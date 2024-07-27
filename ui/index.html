@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800" rel="stylesheet">
+    <title>FinalZ Fishing</title>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif;
+            color: #e2e8f0;
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: #3E1918;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #823432;
+            border-radius: 10px;
+        }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        button {
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background-color: #6b2a2a;
+    }
+
+    button:active {
+        transform: scale(0.95);
+        background-color: #4a1d1d;
+    }
+
+    </style>
+</head>
+<body style="display: none;">
+    <div id="app">
+        <div class="flex w-screen h-screen justify-center items-center">
+            <div class="w-[30rem] h-[42.5rem] bg-[#2D1112] rounded-xl">
+                <div class="flex flex-row justify-between items-center mt-4 mb-2">
+                    <h1 class="text-left ml-4 w-full text-white text-[1.75rem] font-medium">Hal felvásárló</h1>
+                    <button class="text-white rounded-md mr-4 text-[1.75rem] font-medium flex items-center hover:scale-110 transition-all duration-300" @click="close()">X</button>
+                </div>
+                <div class="overflow-y-scroll max-h-[27.5rem] w-[460px] mt-4 px-4">
+                    <div class="grid grid-flow-cols grid-rows-1 gap-[0.5rem]">  
+                        <div class="flex bg-[#3E1918] w-full h-[8.75rem] text-white rounded-md items-center shadow-md p-4" v-for="fish in fishes" :key="fish.name">
+                            <div class="flex flex-col justify-between h-full">
+                                <span class="text-xl font-medium">{{ fish.label }}</span>
+                                <span class="text-sm text-[#D18A8D]">{{ fish.price }}$/pcs</span>
+                                <span class="text-sm text-[#D18A8D] mb-3">{{ fish.count }}x</span>
+                                <div class="flex flex-row gap-4">
+                                    <button id="sellfish" class="bg-[#542020] text-white rounded-md p-2 text-xs flex items-center" @click="sell(fish, 1)">Sell 1 <i class="fa-solid fa-tag ml-2"></i></button>
+                                    <button id="sellfish" class="bg-[#542020] text-white rounded-md p-2 text-xs flex items-center" @click="sell(fish, fish.count)">Sell All <i class="fa-solid fa-tag ml-2"></i></button>
+                                </div>
+                            </div>
+                            <img class="w-[7.5rem] h-[7.5rem] ml-auto rounded-md mr-6" :src="fish.img" :alt="fish.label">
+                        </div>    
+                    </div>
+                </div>
+                <div class="flex flex-row justify-between items-center">
+                    <div class="mt-8 px-4 w-1/2 flex flex-col ml-12">
+                        <label for="quantity" class="text-sm ml-5 text-[#D18A8D]">Quantity</label>
+                        <input type="number" id="quantity" placeholder="Amount..." class="bg-[#3E1918] border border-[#693136] text-sm justify-center text-white rounded-md p-2 w-full mt-1" min="1" style="width: 6rem; text-align: center;">
+                    </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
