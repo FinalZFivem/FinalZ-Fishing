@@ -4,6 +4,7 @@
 # Links
 - Preview: https://www.youtube.com/watch?v=zjy6L7-hOo4
 - Cfx post: https://forum.cfx.re/t/standalone-free-finalz-fishing/5253896
+- our discord: https://discord.gg/nJ4BDGWrrV
 # The script features:
 - Feeding system
 - optimalisation 
